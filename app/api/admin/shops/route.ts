@@ -13,7 +13,7 @@ const schema = z.object({
 
 export async function POST(req: Request) {
   const session = await readSession();
-  if (!session || session.role !== "ADMIN") return NextResponse.json({ error: "Faqat admin uchun." }, { status: 403 });
+  if (!session || session.role !== "ADMIN") return NextResponse.json({ error: "Ruxsat yo‘q." }, { status: 403, headers: { "Cache-Control": "no-store" } });
   try {
     const body = schema.parse(await req.json());
     const temporaryPassword = randomToken().slice(0, 14);
