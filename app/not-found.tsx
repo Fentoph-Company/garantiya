@@ -1,0 +1,1 @@
+export default function NotFound(){return <main className="auth-page"><section className="auth-card"><span className="eyebrow">404</span><h1>Sahifa topilmadi</h1><p>Siz izlayotgan sahifa mavjud emas yoki havola eskirgan.</p><a className="primary-button" href="/">Bosh sahifaga qaytish</a></section></main>}
