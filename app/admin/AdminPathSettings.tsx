@@ -1,0 +1,6 @@
+"use client";
+import {useEffect,useState} from "react";
+export default function AdminPathSettings(){const [path,setPath]=useState("/admin"),[msg,setMsg]=useState("");
+useEffect(()=>{fetch("/api/admin/settings").then(r=>r.json()).then(d=>setPath(d.path||"/admin"))},[]);
+async function save(){setMsg("");const r=await fetch("/api/admin/settings",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({path})});const d=await r.json();if(!r.ok){setMsg(d.error);return}setMsg("Administrator manzili saqlandi. Yangi manzil: "+d.path);setTimeout(()=>location.href=d.path,700)}
+return <div className="link-box" style={{margin:"20px 0"}}><strong>Administrator paneli manzili</strong><p>Panelning URL yo‘lini o‘zgartiring. Masalan: /boshqaruv-7x9</p><div className="button-row"><input value={path} onChange={e=>setPath(e.target.value)} pattern="/[a-zA-Z0-9_-]{3,49}" style={{flex:1,padding:12,borderRadius:10,border:"1px solid #ddd"}}/><button className="secondary-button" onClick={save}>Saqlash</button></div>{msg&&<small>{msg}</small>}</div>}
