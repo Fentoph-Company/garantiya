@@ -1,8 +1,9 @@
 import {NextRequest,NextResponse} from "next/server";
 import {prisma} from "@/lib/prisma";
 
-export async function proxy(req:NextRequest){
+export default async function proxy(req:NextRequest){
  const path=req.nextUrl.pathname;
+ if(path.startsWith("/api/") || path.startsWith("/w/")) return NextResponse.next();
  if(path==="/admin" || path.startsWith("/admin/") || (path.startsWith("/") && !path.includes(".") && !["/","/login","/seller","/privacy","/terms","/403","/502"].some(x=>path===x||path.startsWith(x+"/")))){
    try{
     const setting=await prisma.appSetting.findUnique({where:{key:"admin_path"}});
