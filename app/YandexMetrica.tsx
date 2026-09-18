@@ -1,0 +1,3 @@
+"use client";
+import Script from "next/script";
+export default function YandexMetrica(){const id=process.env.NEXT_PUBLIC_YANDEX_METRICA_ID;if(!id)return null;return <><Script id="yandex-metrica-loader" strategy="afterInteractive" src="https://mc.yandex.ru/metrika/tag.js?id="+id onLoad={()=>{const w=window as unknown as {ym?:Function};w.ym=w.ym||function(...args:unknown[]){(w.ym as any).a=((w.ym as any).a||[]).concat([args])};w.ym(Number(id),"init",{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true})}}/><noscript><div><img src={"https://mc.yandex.ru/watch/"+id} style={{position:"absolute",left:"-9999px"}} alt=""/></div></noscript></>}
