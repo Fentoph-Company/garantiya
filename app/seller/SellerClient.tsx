@@ -24,7 +24,7 @@ export default function SellerPage() {
     <img src={result.qr} alt="Kafolat QR kodi" className="qr-image"/>
     <div className="link-box">{result.link}</div>
     <p><strong>Bu QR kodni xaridorga topshirib qo‘ying.</strong> U kafolatdan foydalanmoqchi bo‘lgan vaqtda shu QR kodni ko‘rsatishi lozim.</p>
-    <div className="warning-box"><strong>Diqqat:</strong> Siz (Do‘kon menejeri) ushbu kafolatni o‘chira olmaysiz. Shuning uchun hech qanday noto‘g‘ri ma’lumot kiritmang. Ushbu ma’lumotlar faqat Warranty muddati tugaganidan keyin o‘chiriladi.</div>
+    <div className="warning-box"><strong>Diqqat:</strong> Siz (Do‘kon menejeri) ushbu kafolatni o‘chira olmaysiz. Shuning uchun hech qanday noto‘g‘ri ma’lumot kiritmang. Ushbu ma’lumotlar faqat kafolat muddati tugaganidan keyin o‘chiriladi.</div>
     <div className="button-row"><button className="primary-button" onClick={()=>navigator.clipboard.writeText(result.link)}>Havolani nusxalash</button><a className="secondary-button" href={result.qr} download="kafolat-qr.png">QR kodni saqlash</a><button className="secondary-button" onClick={()=>setResult(null)}>Yangi kafolat</button></div>
   </section></main>;
   return <main className="auth-page"><section className="auth-card wide-card"><span className="eyebrow">Do‘kon menejeri</span><h1>Yangi kafolat taloni</h1><p>Mahsulot ma’lumotlarini aniq kiriting. Boshlanish sanasi server vaqti bilan avtomatik belgilanadi.</p>
