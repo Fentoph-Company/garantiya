@@ -45,6 +45,12 @@ model Warranty {
   @@index([shopId,createdAt])
   @@index([warrantyTo,status])
 }
+model AppSetting {
+  id String @id @default(cuid())
+  key String @unique
+  value String
+  updatedAt DateTime @updatedAt
+}
 model AuditLog {
   id String @id @default(cuid())
   actorId String?
