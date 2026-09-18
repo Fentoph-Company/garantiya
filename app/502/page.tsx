@@ -1,0 +1,1 @@
+export default function BadGateway(){return <main className="auth-page"><section className="auth-card"><span className="eyebrow">502 — BAD GATEWAY</span><h1>Server bilan aloqa vaqtincha mavjud emas.</h1><p>Xizmatlar o‘rtasidagi ulanishda muammo yuz berdi. Bir necha daqiqadan so‘ng qayta urinib ko‘ring.</p><a className="primary-button" href="/">Qayta urinish</a></section></main>}
