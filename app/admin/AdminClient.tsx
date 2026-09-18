@@ -1,5 +1,5 @@
-import AdminPathSettings from "./AdminPathSettings";
 "use client";
+import AdminPathSettings from "./AdminPathSettings";
 import {useEffect,useState} from "react";
 export default function Admin(){
  const [shops,setShops]=useState({name:"",email:"",phone:"",address:""}),[created,setCreated]=useState<any>(null),[items,setItems]=useState<any[]>([]),[error,setError]=useState("");
