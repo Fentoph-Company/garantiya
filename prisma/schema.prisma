@@ -2,7 +2,56 @@ generator client { provider = "prisma-client-js" }
 datasource db { provider = "postgresql" url = env("DATABASE_URL") }
 enum Role { ADMIN SELLER }
 enum WarrantyStatus { ACTIVE EXPIRED }
-model User { id String @id @default(cuid()) email String @unique passwordHash String role Role shopId String? shop Shop? createdAt DateTime @default(now()) updatedAt DateTime @updatedAt }
-model Shop { id String @id @default(cuid()) name String phone String? address String? users User[] warranties Warranty[] createdAt DateTime @default(now()) }
-model Warranty { id String @id @default(cuid()) publicToken String @unique model String price Decimal @db.Decimal(14,2) currency String @default("UZS") warrantyTo DateTime startingDate DateTime ram String? memory String? product String status WarrantyStatus @default(ACTIVE) shopId String shop Shop @relation(fields:[shopId],references:[id]) sellerId String seller User @relation(fields:[sellerId],references:[id]) createdAt DateTime @default(now()) expiredAt DateTime? deletedAt DateTime? @@index([shopId,createdAt]) @@index([warrantyTo,status]) }
-model AuditLog { id String @id @default(cuid()) actorId String? action String entity String entityId String? ipHash String? createdAt DateTime @default(now()) @@index([createdAt]) }
+model User {
+  id String @id @default(cuid())
+  email String @unique
+  passwordHash String
+  role Role
+  shopId String?
+  shop Shop?
+  warranties Warranty[]
+  mustChangePassword Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Shop {
+  id String @id @default(cuid())
+  name String
+  phone String?
+  address String?
+  users User[]
+  warranties Warranty[]
+  createdAt DateTime @default(now())
+}
+model Warranty {
+  id String @id @default(cuid())
+  publicToken String @unique
+  model String
+  price Decimal @db.Decimal(14,2)
+  currency String @default("UZS")
+  warrantyTo DateTime
+  startingDate DateTime
+  ram String?
+  memory String?
+  product String
+  status WarrantyStatus @default(ACTIVE)
+  shopId String
+  shop Shop @relation(fields:[shopId],references:[id])
+  sellerId String
+  seller User @relation(fields:[sellerId],references:[id])
+  createdAt DateTime @default(now())
+  expiredAt DateTime?
+  deletedAt DateTime?
+  @@index([shopId,createdAt])
+  @@index([warrantyTo,status])
+}
+model AuditLog {
+  id String @id @default(cuid())
+  actorId String?
+  action String
+  entity String
+  entityId String?
+  ipHash String?
+  createdAt DateTime @default(now())
+  @@index([createdAt])
+}
