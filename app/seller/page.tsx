@@ -1,2 +1,2 @@
-import {redirect} from "next/navigation";import {readSession} from "@/lib/security";import SellerClient from "./SellerClient";
-export default async function SellerPage(){const s=await readSession();if(!s||s.role!=="SELLER"||!s.shopId)redirect("/login");return <SellerClient/>}
+import { redirect } from "next/navigation";
+export default function SellerPage(){redirect("/seller/new")}
