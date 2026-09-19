@@ -4,25 +4,25 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const items = [
-  { href: "/admin/shops", label: "Do‘konlar" },
-  { href: "/admin/warranties", label: "Garantiya talonlar" },
-  { href: "/admin/security", label: "Xavfsizlik" },
+  { key: "shops", label: "Do‘konlar" },
+  { key: "warranties", label: "Garantiya talonlar" },
+  { key: "security", label: "Xavfsizlik" },
 ];
 
-export default function AdminNav() {
+export default function AdminNav({ basePath = "/admin" }: { basePath?: string }) {
   const pathname = usePathname();
+  const base = basePath.replace(/\/$/, "");
 
   return (
     <nav className="panel-nav" aria-label="Administrator bo‘limlari">
-      {items.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          className={pathname === item.href ? "active" : ""}
-        >
-          {item.label}
-        </Link>
-      ))}
+      {items.map((item) => {
+        const href = `${base}/${item.key}`;
+        return (
+          <Link key={href} href={href} className={pathname === href ? "active" : ""}>
+            {item.label}
+          </Link>
+        );
+      })}
       <button
         type="button"
         onClick={async () => {
