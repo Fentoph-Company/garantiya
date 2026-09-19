@@ -25,7 +25,7 @@ export default function Login() {
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || "Kirish amalga oshmadi.");
+        setError(data.error || "Login yoki parol noto‘g‘ri.");
         return;
       }
 
@@ -44,49 +44,63 @@ export default function Login() {
 
   return (
     <main className="auth-page">
-      <form onSubmit={submit} className="auth-card">
-        <a className="brand" href="/">
+      <div className="auth-shell">
+        <a className="brand auth-brand" href="/">
           <b>G</b>garantiya
         </a>
 
-        <h1>Administratorga kirish</h1>
-        <p>
-          Admin e-mail manzilingiz va parolingiz bilan kiring. Hisobga
-          muvaffaqiyatli kirgandan keyin administrator huquqlari avtomatik
-          tekshiriladi.
-        </p>
+        <form onSubmit={submit} className="auth-card login-card">
+          <div className="eyebrow">SHAXSIY KABINET</div>
+          <h1>Tizimga kirish</h1>
+          <p>
+            Admin yoki do‘kon uchun berilgan login va parol orqali
+            hisobingizga kiring.
+          </p>
 
-        <label>
-          Admin e-mail
-          <input
-            type="email"
-            required
-            autoComplete="username"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="admin@example.uz"
-          />
-        </label>
+          <div className="login-fields">
+            <label>
+              <span>Login / e-mail</span>
+              <input
+                type="email"
+                required
+                autoComplete="username"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="admin@example.uz"
+              />
+            </label>
 
-        <label>
-          Admin parol
-          <input
-            type="password"
-            required
-            minLength={8}
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Parolingiz"
-          />
-        </label>
+            <label>
+              <span>Parol</span>
+              <input
+                type="password"
+                required
+                minLength={8}
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Parolingizni kiriting"
+              />
+            </label>
+          </div>
 
-        {error && <div className="error-box">{error}</div>}
+          {error && <div className="error-box">{error}</div>}
 
-        <button className="btn dark" type="submit" disabled={loading}>
-          {loading ? "Tekshirilmoqda..." : "Kirish →"}
-        </button>
-      </form>
+          <button className="btn dark login-submit" type="submit" disabled={loading}>
+            {loading ? "Tekshirilmoqda..." : "Kirish →"}
+          </button>
+
+          <div className="login-note">
+            <strong>Eslatma</strong>
+            <p>
+              Login va parollar admin tomonidan har bir do‘kon uchun alohida
+              beriladi.
+            </p>
+          </div>
+        </form>
+
+        <a className="back-home" href="/">← Bosh sahifaga qaytish</a>
+      </div>
     </main>
   );
 }
