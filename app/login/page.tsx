@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -69,15 +70,25 @@ export default function Login() {
 
             <label>
               <span>Parol</span>
-              <input
-                type="password"
-                required
-                minLength={8}
-                autoComplete="current-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Parolingizni kiriting"
-              />
+              <div className="password-field">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  required
+                  minLength={8}
+                  autoComplete="current-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Parolingizni kiriting"
+                />
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={() => setShowPassword((value) => !value)}
+                  aria-label={showPassword ? "Parolni yashirish" : "Parolni ko‘rsatish"}
+                >
+                  {showPassword ? "Yashirish" : "Ko‘rsatish"}
+                </button>
+              </div>
             </label>
           </div>
 
