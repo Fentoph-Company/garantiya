@@ -5,6 +5,7 @@ import AdminNav from "@/app/admin/AdminNav";
 import ShopsPage from "@/app/admin/shops/page";
 import WarrantiesPage from "@/app/admin/warranties/page";
 import SecurityPage from "@/app/admin/security/page";
+import DangerZonePage from "@/app/admin/security/danger/page";
 
 export const dynamic = "force-dynamic";
 
@@ -26,7 +27,10 @@ export default async function DynamicAdminPage({
   if (!session || session.role !== "ADMIN") redirect("/login");
 
   const section = segments[1] || "shops";
-  if (segments.length > 2 || !["shops", "warranties", "security"].includes(section)) notFound();
+  const subsection = segments[2];
+  if (segments.length > 3 || !["shops", "warranties", "security"].includes(section)) notFound();
+  if (section !== "security" && subsection) notFound();
+  if (section === "security" && subsection && subsection !== "danger") notFound();
 
   return (
     <main className="panel-page">
@@ -40,7 +44,8 @@ export default async function DynamicAdminPage({
         <AdminNav basePath={adminPath} />
         {section === "shops" && <ShopsPage />}
         {section === "warranties" && <WarrantiesPage />}
-        {section === "security" && <SecurityPage />}
+        {section === "security" && !subsection && <SecurityPage />}
+        {section === "security" && subsection === "danger" && <DangerZonePage />}
       </div>
     </main>
   );
