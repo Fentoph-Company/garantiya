@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ export default function Login() {
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: login, password }),
       });
 
       const data = await response.json();
@@ -52,20 +52,18 @@ export default function Login() {
         <form onSubmit={submit} className="auth-card login-card">
           <div className="eyebrow">SHAXSIY KABINET</div>
           <h1>Tizimga kirish</h1>
-          <p>
-            Hisobingiz uchun berilgan login va parol orqali tizimga kiring.
-          </p>
+          <p>Hisobingiz uchun berilgan login va parol orqali tizimga kiring.</p>
 
           <div className="login-fields">
             <label>
-              <span>Login / e-mail</span>
+              <span>Login</span>
               <input
-                type="email"
+                type="text"
                 required
                 autoComplete="username"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="e-mail manzilingiz"
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
+                placeholder="Loginni kiriting"
               />
             </label>
 
@@ -91,9 +89,7 @@ export default function Login() {
 
           <div className="login-note">
             <strong>Eslatma</strong>
-            <p>
-              Login va parollar har bir do‘kon uchun alohida beriladi.
-            </p>
+            <p>Login va parollar har bir do‘kon uchun alohida beriladi.</p>
           </div>
         </form>
 
