@@ -1,2 +1,36 @@
 import Link from "next/link";
-export default function Terms(){return <main className="legal-page"><article><span className="eyebrow">Huquqiy hujjat</span><h1>Foydalanish shartlari</h1><p>Garantiya platformasidan foydalanish orqali foydalanuvchi quyidagi qoidalarni qabul qiladi.</p><h2>1. Hisoblar</h2><p>Administrator va do‘kon menejeri hisoblari faqat vakolatli shaxslar tomonidan ishlatilishi kerak. Login va parolni uchinchi shaxslarga berish taqiqlanadi.</p><h2>2. Kafolat ma’lumotlari</h2><p>Do‘kon menejeri model, narx, mahsulot turi va kafolat muddatini to‘g‘ri kiritishi shart. Yaratilgan kafolatni do‘kon menejeri o‘chira olmaydi.</p><h2>3. QR-kod</h2><p>QR-kod xaridorga topshiriladi. Kafolatni tekshirishda ushbu kod yoki uning noyob havolasidan foydalaniladi.</p><h2>4. Administrator vakolatlari</h2><p>Administrator do‘konlar, sotuvchi hisoblari va kafolat yozuvlarini boshqarishi mumkin. Barcha muhim amallar audit qilinishi mumkin.</p><h2>5. Taqiqlangan foydalanish</h2><p>Soxta ma’lumot kiritish, boshqa shaxs hisobidan foydalanish, tizim xavfsizligini chetlab o‘tishga urinish va xizmatga zarar yetkazuvchi harakatlar taqiqlanadi.</p><h2>6. Xizmatning ishlashi</h2><p>Texnik xizmat, yangilanish yoki favqulodda holatlar sababli vaqtinchalik uzilishlar bo‘lishi mumkin.</p><h2>7. Huquqiy qoidalar</h2><p>Ushbu hujjatdagi maxsus yuridik bandlar platforma operatorining rasmiy rekvizitlari va amaldagi qonunchilikka mos ravishda yakuniy tahrir qilinishi kerak.</p><p><Link href="/">Bosh sahifaga qaytish</Link></p></article></main>
+
+export default function Terms() {
+  return (
+    <main className="legal-page">
+      <article>
+        <span className="eyebrow">Huquqiy hujjat</span>
+        <h1>Foydalanish shartlari</h1>
+        <p>Garantiya platformasidan foydalanish orqali foydalanuvchi quyidagi qoidalarni qabul qiladi.</p>
+
+        <h2>1. Hisoblar</h2>
+        <p>Administrator va do‘kon menejeri hisoblari faqat vakolatli shaxslar tomonidan ishlatilishi kerak. Login va parolni uchinchi shaxslarga berish taqiqlanadi.</p>
+
+        <h2>2. Kafolat ma’lumotlari</h2>
+        <p>Do‘kon menejeri model, narx, mahsulot turi va kafolat muddatini to‘g‘ri kiritishi shart. Yaratilgan kafolatni do‘kon menejeri o‘chira olmaydi.</p>
+
+        <h2>3. QR-kod</h2>
+        <p>QR-kod xaridorga topshiriladi. Kafolatni tekshirishda ushbu kod yoki uning noyob havolasidan foydalaniladi.</p>
+
+        <h2>4. Administrator vakolatlari</h2>
+        <p>Administrator do‘konlar, sotuvchi hisoblari va kafolat yozuvlarini boshqarishi mumkin. Barcha muhim amallar audit qilinishi mumkin.</p>
+
+        <h2>5. Taqiqlangan foydalanish</h2>
+        <p>Soxta ma’lumot kiritish, boshqa shaxs hisobidan foydalanish, tizim xavfsizligini chetlab o‘tishga urinish va xizmatga zarar yetkazuvchi harakatlar taqiqlanadi.</p>
+
+        <h2>6. Xizmatning ishlashi</h2>
+        <p>Texnik xizmat, yangilanish yoki favqulodda holatlar sababli vaqtinchalik uzilishlar bo‘lishi mumkin.</p>
+
+        <h2>7. Huquqiy qoidalar</h2>
+        <p>Ushbu hujjatdagi maxsus yuridik bandlar platforma operatorining rasmiy rekvizitlari va amaldagi qonunchilikka mos ravishda yakuniy tahrir qilinishi kerak.</p>
+
+        <p><Link href="/">Bosh sahifaga qaytish</Link></p>
+      </article>
+    </main>
+  );
+}
