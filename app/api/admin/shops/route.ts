@@ -12,6 +12,18 @@ const schema = z.object({
   address: z.string().trim().max(250).optional(),
 });
 
+export async function GET() {
+  const session = await readSession();
+  if (!session || session.role !== "ADMIN") {
+    return NextResponse.json({ error: "Ruxsat yo‘q." }, { status: 403, headers: { "Cache-Control": "no-store" } });
+  }
+  const shops = await prisma.shop.findMany({
+    orderBy: { createdAt: "desc" },
+    include: { users: { where: { role: "SELLER" }, select: { email: true } }, _count: { select: { warranties: true } } },
+  });
+  return NextResponse.json(shops.map(s => ({ id: s.id, name: s.name, email: s.users[0]?.email ?? "", phone: s.phone, address: s.address, warrantyCount: s._count.warranties })), { headers: { "Cache-Control": "no-store" } });
+}
+
 export async function POST(req: Request) {
   const session = await readSession();
 
