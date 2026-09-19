@@ -1,2 +1,5 @@
-import {redirect} from "next/navigation";import {readSession} from "@/lib/security";import AdminClient from "./AdminClient";
-export default async function AdminPage(){const s=await readSession();if(!s||s.role!=="ADMIN")redirect("/login");return <AdminClient/>}
+import { redirect } from "next/navigation";
+
+export default function AdminPage() {
+  redirect("/admin/shops");
+}
