@@ -92,8 +92,7 @@ export default function Login() {
           <div className="login-note">
             <strong>Eslatma</strong>
             <p>
-              Login va parollar admin tomonidan har bir do‘kon uchun alohida
-              beriladi.
+              Login va parollar har bir do‘kon uchun alohida beriladi.
             </p>
           </div>
         </form>
