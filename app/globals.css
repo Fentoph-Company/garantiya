@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
-
 :root {
   --ink: #111713;
   --ink-2: #202822;
@@ -22,10 +20,10 @@ body {
   min-width: 320px;
   background: var(--paper);
   color: var(--ink);
-  font-family: "DM Sans", sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-body, input, button { font-family: "DM Sans", sans-serif; }
+body, input, button { font-family: inherit; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
 button { -webkit-tap-highlight-color: transparent; }
@@ -57,7 +55,7 @@ button { -webkit-tap-highlight-color: transparent; }
   align-items: center;
   gap: 9px;
   flex: 0 0 auto;
-  font: 800 20px/1 "Manrope", sans-serif;
+  font: 800 20px/1 ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -.6px;
 }
 .brand b {
@@ -156,7 +154,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .hero h1 {
   max-width: 720px;
   margin: 22px 0;
-  font: 800 clamp(44px, 6vw, 76px)/.99 "Manrope", sans-serif;
+  font: 800 clamp(44px, 6vw, 76px)/.99 ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -4px;
 }
 .hero h1 em, h2 span { color: #87a83a; font-style: normal; }
@@ -194,7 +192,7 @@ button { -webkit-tap-highlight-color: transparent; }
 }
 .dash > small { color: #929b95; font-size: 9px; letter-spacing: 1px; }
 .dash > small i { color: #75952d; font-style: normal; }
-.dash h3 { margin: 12px 0 20px; font: 700 25px/1.1 "Manrope"; }
+.dash h3 { margin: 12px 0 20px; font: 700 25px/1.1 ui-sans-serif, system-ui, sans-serif; }
 .product {
   display: flex;
   align-items: center;
@@ -230,7 +228,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .mini { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
 .mini > div { padding: 13px; border: 1px solid #e9ece9; border-radius: 14px; }
 .mini small, .mini span { display: block; color: #949c98; font-size: 8px; }
-.mini b { display: block; margin: 4px 0; font: 700 22px "Manrope"; }
+.mini b { display: block; margin: 4px 0; font: 700 22px ui-sans-serif, system-ui, sans-serif; }
 .qr {
   display: flex;
   align-items: center;
@@ -286,7 +284,7 @@ button { -webkit-tap-highlight-color: transparent; }
 }
 .section h2, .verify h2, .cta h2 {
   margin: 18px 0;
-  font: 800 clamp(38px, 5vw, 62px)/1.04 "Manrope";
+  font: 800 clamp(38px, 5vw, 62px)/1.04 ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -3px;
 }
 .lead { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.8; }
@@ -332,12 +330,12 @@ button { -webkit-tap-highlight-color: transparent; }
   color: var(--lime);
   font-style: normal;
 }
-.cards h3 { margin: 24px 0 10px; font: 700 16px "Manrope"; }
+.cards h3 { margin: 24px 0 10px; font: 700 16px ui-sans-serif, system-ui, sans-serif; }
 .cards p { min-height: 55px; margin: 0; color: #929c95; font-size: 11px; line-height: 1.6; }
 .cards a { color: #dfff9d; font-size: 10px; font-weight: 700; }
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 .steps hr { margin: 15px 0 23px; border: 0; border-top: 1px solid var(--line); }
-.steps h3 { font: 700 18px "Manrope"; }
+.steps h3 { font: 700 18px ui-sans-serif, system-ui, sans-serif; }
 .steps p { max-width: 270px; color: #899198; font-size: 12px; line-height: 1.6; }
 .verify { padding: clamp(76px, 10vw, 110px) 0; }
 .verify-grid {
@@ -377,7 +375,7 @@ button { -webkit-tap-highlight-color: transparent; }
   align-items: center;
 }
 .subscribe { padding: 25px; border: 1px solid var(--line); border-radius: 24px; background: #fff; box-shadow: var(--shadow-sm); }
-.subscribe > b { font: 700 17px "Manrope"; }
+.subscribe > b { font: 700 17px ui-sans-serif, system-ui, sans-serif; }
 .subscribe p { margin: 10px 0 16px; color: #899197; font-size: 11px; line-height: 1.6; }
 .subscribe form { display: flex; gap: 8px; }
 .subscribe input { min-width: 0; flex: 1; padding: 12px; border: 1px solid #e0e4e1; border-radius: 10px; outline: 0; font-size: 11px; }

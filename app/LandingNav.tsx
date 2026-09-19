@@ -1,0 +1,3 @@
+"use client";
+import {useState} from "react";
+export default function LandingNav(){const [menu,setMenu]=useState(false);return <header className="nav-wrap"><nav className="nav container"><a className="brand" href="#"><b>G</b>garantiya</a><div className={"nav-links "+(menu?"open":"")}><a href="#muammo" onClick={()=>setMenu(false)}>Muammo</a><a href="#yechim" onClick={()=>setMenu(false)}>Yechim</a><a href="#qanday" onClick={()=>setMenu(false)}>Qanday ishlaydi</a><a href="#tekshiruv" onClick={()=>setMenu(false)}>Tekshirish</a></div><a className="nav-cta" href="/login">Kirish →</a><button className="menu-btn" type="button" aria-label="Menyuni ochish" onClick={()=>setMenu(!menu)}>☰</button></nav></header>}

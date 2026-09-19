@@ -1,0 +1,3 @@
+"use client";
+import {FormEvent,useState} from "react";
+export default function LandingVerify(){const [code,setCode]=useState("");const [verified,setVerified]=useState(false);const verify=(e:FormEvent)=>{e.preventDefault();setVerified(code.trim().length>=6)};return <form className="verify-card" onSubmit={verify}><b>⌕　Kafolat raqami</b><input value={code} onChange={e=>setCode(e.target.value)} placeholder="Masalan: GRT-8291-44"/><button className="btn dark">Tekshirish →</button>{verified&&<div className="result">✓ <div><b>Kafolat topildi</b><span>GRT-{code.toUpperCase()} · Faol</span></div></div>}</form>}

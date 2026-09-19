@@ -1,0 +1,3 @@
+"use client";
+import {FormEvent,useState} from "react";
+export default function LandingSubscribe(){const [email,setEmail]=useState("");const [sent,setSent]=useState(false);const submit=(e:FormEvent)=>{e.preventDefault();if(email.trim())setSent(true)};return <div className="subscribe"><b>Loyihadan yangilik oling</b><p>Platforma ishga tushishi haqida birinchi bo‘lib xabar beramiz.</p><form onSubmit={submit}><input type="email" required value={email} onChange={e=>setEmail(e.target.value)} placeholder="elektronpochta@example.com"/><button>{sent?"Yuborildi ✓":"Qo‘shilish"}</button></form></div>}
