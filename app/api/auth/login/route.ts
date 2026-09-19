@@ -66,10 +66,19 @@ export async function POST(req: Request) {
     });
 
     return response;
-  } catch {
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: "Login yoki parol formati noto‘g‘ri." },
+        { status: 400, headers: { "Cache-Control": "no-store" } },
+      );
+    }
+
+    console.error("AUTH_LOGIN_ERROR", error);
+
     return NextResponse.json(
-      { error: "Noto‘g‘ri so‘rov." },
-      { status: 400, headers: { "Cache-Control": "no-store" } },
+      { error: "Serverda ichki xatolik yuz berdi." },
+      { status: 500, headers: { "Cache-Control": "no-store" } },
     );
   }
 }
