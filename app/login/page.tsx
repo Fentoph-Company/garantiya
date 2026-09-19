@@ -47,7 +47,7 @@ export default function Login() {
     <main className="auth-page">
       <div className="auth-shell">
         <a className="brand auth-brand" href="/">
-          <b>G</b>garantiya
+          <img className="brand-mark" src="/icon.svg" alt="garantiya" />garantiya
         </a>
 
         <form onSubmit={submit} className="auth-card login-card">
