@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import QRCode from "qrcode";
+import SellerNav from "./SellerNav";
 
 export default function SellerPage() {
   const [form, setForm] = useState({
@@ -58,6 +59,7 @@ export default function SellerPage() {
               <b>G</b>
               garantiya
             </a>
+            <SellerNav />
             <button
               type="button"
               className="secondary-button"
