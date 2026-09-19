@@ -1,0 +1,27 @@
+name: Build tekshiruvi
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      AUTH_SECRET: "ci-test-secret-0123456789-0123456789-0123456789"
+      AUDIT_SALT: "ci-test-audit-salt-0123456789"
+      NEXT_PUBLIC_APP_URL: "http://localhost:3000"
+      ADMIN_EMAIL: "ci@example.uz"
+      ADMIN_PASSWORD: "ci-test-password-123456"
+      NEXT_PUBLIC_YANDEX_METRICA_ID: "112800951"
+      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/garantiya?schema=public"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: O'rnatish
+        run: npm install --no-audit --no-fund
+      - name: Build
+        run: npm run build
