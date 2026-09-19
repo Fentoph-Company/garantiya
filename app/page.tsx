@@ -1,19 +1,197 @@
 "use client";
-import {FormEvent,useState} from "react";
-export default function Home(){
- const [code,setCode]=useState(""); const [verified,setVerified]=useState(false); const [email,setEmail]=useState(""); const [sent,setSent]=useState(false); const [menu,setMenu]=useState(false);
- const verify=(e:FormEvent)=>{e.preventDefault();setVerified(code.trim().length>=6)};
- const subscribe=(e:FormEvent)=>{e.preventDefault();if(email.trim())setSent(true)};
- return <main>
- <header className="nav-wrap"><nav className="nav container"><a className="brand" href="#"><b>G</b>garantiya</a><div className={"nav-links "+(menu?"open":"")}><a href="#muammo">Muammo</a><a href="#yechim">Yechim</a><a href="#qanday">Qanday ishlaydi</a><a href="#tekshiruv">Tekshirish</a></div><a className="nav-cta" href="#boshlash">Boshlash →</a><button className="menu-btn" onClick={()=>setMenu(!menu)}>☰</button></nav></header>
- <section className="hero"><div className="glow one"/><div className="glow two"/><div className="container hero-grid"><div><div className="eyebrow">● KAFOLAT ENDI QOG‘OZGA BOG‘LIQ EMAS</div><h1>Kafolat jarayonini <em>oddiy, shaffof</em> va raqamli qiling.</h1><p className="hero-text">Mahsulot kafolati, chek, servis murojaatlari va tekshiruvlarni bitta ishonchli platformada boshqaring.</p><div className="actions"><a className="btn dark" href="#boshlash">Platformani ko‘rish →</a><a className="btn" href="#tekshiruv">⌗ Kafolatni tekshirish</a></div><div className="trust">✓ Bepul boshlash　 ✓ QR orqali tekshirish　 ✓ Servis kuzatuvi</div></div>
- <div className="dashboard"><div className="dash"><small>SHAXSIY KABINET　 <i>● Faol</i></small><h3>Kafolatlaringiz</h3><div className="product"><strong>G</strong><div><b>Samsung mahsuloti</b><span>Elektronika · 2 yillik kafolat</span></div><label>Faol</label></div><div className="barlabel"><span>Kafolat muddati</span><b>72%</b></div><div className="bar"><i/></div><div className="meta"><span>17 oy qoldi</span><span>2027.02.14 gacha</span></div><div className="mini"><div><small>Murojaatlar</small><b>02</b><span>1 tasi ochiq</span></div><div><small>Hujjatlar</small><b>05</b><span>hammasi saqlangan</span></div></div><div className="qr"><strong>▦</strong><div><b>QR orqali tekshirish</b><span>GRT-8291-44</span></div><i>✓</i></div></div><div className="float">✓ <div><b>Kafolat tasdiqlandi</b><small>2 soniya oldin</small></div></div></div></div></section>
- <section className="metrics container">{[["01","Kafolatlar yo'qolmaydi","Chek, muddat va servis tarixi bir joyda."],["02","QR orqali tekshiruv","Mahsulotni bir necha soniyada tasdiqlang."],["03","Jarayon shaffof","Murojaat holatini kuzating."]].map(x=><div className="metric" key={x[0]}><small>{x[0]}</small><div><b>{x[1]}</b><p>{x[2]}</p></div></div>)}</section>
- <section id="muammo" className="section"><div className="container two"><div><small className="kicker">01 — TANLANGAN MUAMMO</small><h2>Kafolat bor, lekin jarayon <span>tartibsiz.</span></h2><p className="lead">Chek yo'qoladi. Kafolat muddati esdan chiqadi. Servisga murojaat qilganda qaysi hujjat kerakligi noma'lum. Eng yomoni — murojaat qayerga yetib borgani ko'rinmaydi.</p></div><div className="list">{["Qog'oz chek va hujjatlar yo'qoladi","Kafolat muddati esdan chiqadi","Servis murojaati bo'yicha noaniqlik","Sotuvchi, xaridor va servis o'rtasida uzilish"].map((x,i)=><div key={x}><small>0{i+1}</small><b>{x}</b><span>Bugungi an'anaviy jarayon</span></div>)}</div></div></section>
- <section id="yechim" className="section dark"><div className="container"><small className="kicker light">02 — BIZ BERADIGAN YECHIMLAR</small><div className="head"><h2>Bir platforma.<br/><span>Butun kafolat ekotizimi.</span></h2><p>Foydalanuvchi uchun sodda interfeys, biznes uchun boshqariladigan jarayon.</p></div><div className="cards">{[["◈","Raqamli kafolat","Har bir mahsulotga yagona raqamli kafolat kartasi."],["▦","QR orqali tekshirish","Kafolatni bir necha soniyada tekshirish."],["◷","Muddat eslatmalari","Kafolat tugashidan oldin bildirishnomalar."],["⌕","Servis kuzatuvi","Murojaatni ochilishidan yopilishigacha kuzating."]].map(x=><article key={x[1]}><i>{x[0]}</i><h3>{x[1]}</h3><p>{x[2]}</p><a href="#boshlash">Batafsil →</a></article>)}</div></div></section>
- <section id="qanday" className="section"><div className="container"><small className="kicker">03 — ANIQLIKDA ISHLASH</small><div className="head"><h2>Jarayon <span>3 qadamda.</span></h2><p>Murakkab tizim ortida oddiy foydalanuvchi tajribasi.</p></div><div className="steps">{[["01","Ro'yxatdan o'ting","Shaxsiy kabinetingizni oching."],["02","Kafolatni biriktiring","Chek yoki QR orqali ma'lumotlarni saqlang."],["03","Murojaat qiling","Servisga so'rov yuboring va statusni kuzating."]].map(x=><div key={x[0]}><small>{x[0]}</small><hr/><h3>{x[1]}</h3><p>{x[2]}</p></div>)}</div></div></section>
- <section id="tekshiruv" className="verify"><div className="container verify-grid"><div><small className="kicker light">04 — KAFOLATNI TEKSHIRISH</small><h2>Haqiqiyligini <span>bir zumda</span> tekshiring.</h2><p>QR kod yoki kafolat ID'sini kiriting. Tizim kafolat holati va muddatini ko'rsatadi.</p></div><form className="verify-card" onSubmit={verify}><b>⌕　Kafolat raqami</b><input value={code} onChange={e=>setCode(e.target.value)} placeholder="Masalan: GRT-8291-44"/><button className="btn dark">Tekshirish →</button>{verified&&<div className="result">✓ <div><b>Kafolat topildi</b><span>GRT-{code.toUpperCase()} · Faol</span></div></div>}</form></div></section>
- <section id="boshlash" className="cta"><div className="container cta-grid"><div><small className="kicker">05 — KEYINGI QADAM</small><h2>Kafolatni <span>raqamlashtirish</span> vaqti keldi.</h2><p>Avval MVP. Keyin sotuvchi, servis va admin uchun to'liq ekotizim.</p></div><div className="subscribe"><b>Loyihadan yangilik oling</b><p>Platforma ishga tushishi haqida birinchi bo'lib xabar beramiz.</p><form onSubmit={subscribe}><input type="email" required value={email} onChange={e=>setEmail(e.target.value)} placeholder="elektronpochta@example.com"/><button>{sent?"Yuborildi ✓":"Qo‘shilish"}</button></form></div></div></section>
- <footer><div className="container foot"><a className="brand" href="#"><b>G</b>garantiya</a><span>© 2026 Garantiya</span><span>O‘zbekiston · Raqamli kafolat platformasi</span><span><a href="/privacy">Maxfiylik siyosati</a> · <a href="/terms">Foydalanish shartlari</a> · <a href="/login">Kirish</a></span></div></footer>
- </main>
+
+import { FormEvent, useState } from "react";
+
+export default function Home() {
+  const [code, setCode] = useState("");
+  const [verified, setVerified] = useState(false);
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
+  const [menu, setMenu] = useState(false);
+
+  const verify = (e: FormEvent) => {
+    e.preventDefault();
+    setVerified(code.trim().length >= 6);
+  };
+
+  const subscribe = (e: FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) setSent(true);
+  };
+
+  return (
+    <main>
+      <header className="nav-wrap">
+        <nav className="nav container">
+          <a className="brand" href="#">
+            <b>G</b>garantiya
+          </a>
+          <div className={"nav-links " + (menu ? "open" : "")}>
+            <a href="#muammo" onClick={() => setMenu(false)}>Muammo</a>
+            <a href="#yechim" onClick={() => setMenu(false)}>Yechim</a>
+            <a href="#qanday" onClick={() => setMenu(false)}>Qanday ishlaydi</a>
+            <a href="#tekshiruv" onClick={() => setMenu(false)}>Tekshirish</a>
+          </div>
+          <a className="nav-cta" href="#boshlash">Boshlash →</a>
+          <button className="menu-btn" type="button" aria-label="Menyuni ochish" onClick={() => setMenu(!menu)}>
+            ☰
+          </button>
+        </nav>
+      </header>
+
+      <section className="hero">
+        <div className="glow one" />
+        <div className="glow two" />
+        <div className="container hero-grid">
+          <div>
+            <div className="eyebrow">● KAFOLAT ENDI QOG‘OZGA BOG‘LIQ EMAS</div>
+            <h1>Kafolat jarayonini <em>oddiy, shaffof</em> va raqamli qiling.</h1>
+            <p className="hero-text">Mahsulot kafolati, chek, servis murojaatlari va tekshiruvlarni bitta ishonchli platformada boshqaring.</p>
+            <div className="actions">
+              <a className="btn dark" href="#boshlash">Platformani ko‘rish →</a>
+              <a className="btn" href="#tekshiruv">⌗ Kafolatni tekshirish</a>
+            </div>
+            <div className="trust">✓ Bepul boshlash　 ✓ QR orqali tekshirish　 ✓ Servis kuzatuvi</div>
+          </div>
+
+          <div className="dashboard">
+            <div className="dash">
+              <small>SHAXSIY KABINET　 <i>● Faol</i></small>
+              <h3>Kafolatlaringiz</h3>
+              <div className="product">
+                <strong>G</strong>
+                <div><b>Samsung mahsuloti</b><span>Elektronika · 2 yillik kafolat</span></div>
+                <label>Faol</label>
+              </div>
+              <div className="barlabel"><span>Kafolat muddati</span><b>72%</b></div>
+              <div className="bar"><i /></div>
+              <div className="meta"><span>17 oy qoldi</span><span>2027.02.14 gacha</span></div>
+              <div className="mini">
+                <div><small>Murojaatlar</small><b>02</b><span>1 tasi ochiq</span></div>
+                <div><small>Hujjatlar</small><b>05</b><span>hammasi saqlangan</span></div>
+              </div>
+              <div className="qr">
+                <strong>▦</strong>
+                <div><b>QR orqali tekshirish</b><span>GRT-8291-44</span></div>
+                <i>✓</i>
+              </div>
+            </div>
+            <div className="float">✓ <div><b>Kafolat tasdiqlandi</b><small>2 soniya oldin</small></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="metrics container">
+        {[
+          ["01", "Kafolatlar yo‘qolmaydi", "Chek, muddat va servis tarixi bir joyda."],
+          ["02", "QR orqali tekshiruv", "Mahsulotni bir necha soniyada tasdiqlang."],
+          ["03", "Jarayon shaffof", "Murojaat holatini kuzating."],
+        ].map((x) => (
+          <div className="metric" key={x[0]}>
+            <small>{x[0]}</small>
+            <div><b>{x[1]}</b><p>{x[2]}</p></div>
+          </div>
+        ))}
+      </section>
+
+      <section id="muammo" className="section problem-section">
+        <div className="container two">
+          <div>
+            <small className="kicker">01 — TANLANGAN MUAMMO</small>
+            <h2>Kafolat bor, lekin jarayon <span>tartibsiz.</span></h2>
+            <p className="lead">Chek yo‘qoladi. Kafolat muddati esdan chiqadi. Servisga murojaat qilganda qaysi hujjat kerakligi noma’lum. Eng yomoni — murojaat qayerga yetib borgani ko‘rinmaydi.</p>
+          </div>
+          <div className="list">
+            {[
+              "Qog‘oz chek va hujjatlar yo‘qoladi",
+              "Kafolat muddati esdan chiqadi",
+              "Servis murojaati bo‘yicha noaniqlik",
+              "Sotuvchi, xaridor va servis o‘rtasida uzilish",
+            ].map((x, i) => (
+              <div key={x}><small>0{i + 1}</small><b>{x}</b><span>Bugungi an’anaviy jarayon</span></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="yechim" className="section dark-section">
+        <div className="container">
+          <small className="kicker light">02 — BIZ BERADIGAN YECHIMLAR</small>
+          <div className="head">
+            <h2>Bir platforma.<br /><span>Butun kafolat ekotizimi.</span></h2>
+            <p>Foydalanuvchi uchun sodda interfeys, biznes uchun boshqariladigan jarayon.</p>
+          </div>
+          <div className="cards">
+            {[
+              ["◈", "Raqamli kafolat", "Har bir mahsulotga yagona raqamli kafolat kartasi."],
+              ["▦", "QR orqali tekshirish", "Kafolatni bir necha soniyada tekshirish."],
+              ["◷", "Muddat eslatmalari", "Kafolat tugashidan oldin bildirishnomalar."],
+              ["⌕", "Servis kuzatuvi", "Murojaatni ochilishidan yopilishigacha kuzating."],
+            ].map((x) => (
+              <article key={x[1]}><i>{x[0]}</i><h3>{x[1]}</h3><p>{x[2]}</p><a href="#boshlash">Batafsil →</a></article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="qanday" className="section">
+        <div className="container">
+          <small className="kicker">03 — ANIQ VA OSON ISHLASH</small>
+          <div className="head">
+            <h2>Jarayon <span>3 qadamda.</span></h2>
+            <p>Murakkab tizim ortida oddiy foydalanuvchi tajribasi.</p>
+          </div>
+          <div className="steps">
+            {[
+              ["01", "Ro‘yxatdan o‘ting", "Shaxsiy kabinetingizni oching."],
+              ["02", "Kafolatni biriktiring", "Chek yoki QR orqali ma’lumotlarni saqlang."],
+              ["03", "Murojaat qiling", "Servisga so‘rov yuboring va statusni kuzating."],
+            ].map((x) => (
+              <div key={x[0]}><small>{x[0]}</small><hr /><h3>{x[1]}</h3><p>{x[2]}</p></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="tekshiruv" className="verify">
+        <div className="container verify-grid">
+          <div>
+            <small className="kicker light">04 — KAFOLATNI TEKSHIRISH</small>
+            <h2>Haqiqiyligini <span>bir zumda</span> tekshiring.</h2>
+            <p>QR kod yoki kafolat ID'sini kiriting. Tizim kafolat holati va muddatini ko‘rsatadi.</p>
+          </div>
+          <form className="verify-card" onSubmit={verify}>
+            <b>⌕　Kafolat raqami</b>
+            <input value={code} onChange={(e) => setCode(e.target.value)} placeholder="Masalan: GRT-8291-44" />
+            <button className="btn dark">Tekshirish →</button>
+            {verified && <div className="result">✓ <div><b>Kafolat topildi</b><span>GRT-{code.toUpperCase()} · Faol</span></div></div>}
+          </form>
+        </div>
+      </section>
+
+      <section id="boshlash" className="cta">
+        <div className="container cta-grid">
+          <div>
+            <small className="kicker">05 — KEYINGI QADAM</small>
+            <h2>Kafolatni <span>raqamlashtirish</span> vaqti keldi.</h2>
+            <p>Avval MVP. Keyin sotuvchi, servis va admin uchun to‘liq ekotizim.</p>
+          </div>
+          <div className="subscribe">
+            <b>Loyihadan yangilik oling</b>
+            <p>Platforma ishga tushishi haqida birinchi bo‘lib xabar beramiz.</p>
+            <form onSubmit={subscribe}><input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="elektronpochta@example.com" /><button>{sent ? "Yuborildi ✓" : "Qo‘shilish"}</button></form>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="container foot">
+          <a className="brand" href="#"><b>G</b>garantiya</a>
+          <span>© 2026 Garantiya</span>
+          <span>O‘zbekiston · Raqamli kafolat platformasi</span>
+          <span><a href="/privacy">Maxfiylik siyosati</a> · <a href="/terms">Foydalanish shartlari</a> · <a href="/login">Kirish</a></span>
+        </div>
+      </footer>
+    </main>
+  );
 }
