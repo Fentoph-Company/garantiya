@@ -53,8 +53,7 @@ export default function Login() {
           <div className="eyebrow">SHAXSIY KABINET</div>
           <h1>Tizimga kirish</h1>
           <p>
-            Admin yoki do‘kon uchun berilgan login va parol orqali
-            hisobingizga kiring.
+            Hisobingiz uchun berilgan login va parol orqali tizimga kiring.
           </p>
 
           <div className="login-fields">
@@ -66,7 +65,7 @@ export default function Login() {
                 autoComplete="username"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@example.uz"
+                placeholder="e-mail manzilingiz"
               />
             </label>
 
