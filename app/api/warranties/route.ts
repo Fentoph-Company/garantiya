@@ -40,7 +40,7 @@ export async function GET() {
     return NextResponse.json({ error: "Ruxsat yo‘q." }, { status: 403, headers: { "Cache-Control": "no-store" } });
   }
   const items = await prisma.warranty.findMany({
-    where: { shopId: session.shopId },
+    where: { shopId: session.shopId, deletedAt: null },
     orderBy: { createdAt: "desc" },
     select: { id: true, publicToken: true, product: true, model: true, price: true, startingDate: true, warrantyTo: true, status: true },
   });
