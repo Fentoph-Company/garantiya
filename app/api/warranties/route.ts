@@ -34,6 +34,19 @@ function parseWarrantyDate(dateOnly: string) {
   return date;
 }
 
+export async function GET() {
+  const session = await readSession();
+  if (!session || session.role !== "SELLER" || !session.shopId) {
+    return NextResponse.json({ error: "Ruxsat yo‘q." }, { status: 403, headers: { "Cache-Control": "no-store" } });
+  }
+  const items = await prisma.warranty.findMany({
+    where: { shopId: session.shopId },
+    orderBy: { createdAt: "desc" },
+    select: { id: true, publicToken: true, product: true, model: true, price: true, startingDate: true, warrantyTo: true, status: true },
+  });
+  return NextResponse.json(items.map(w => ({ ...w, price: w.price.toString() })), { headers: { "Cache-Control": "no-store" } });
+}
+
 export async function POST(req: Request) {
   const session = await readSession();
 
