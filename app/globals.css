@@ -131,6 +131,8 @@ button { -webkit-tap-highlight-color: transparent; }
   border-color: var(--ink);
   background: var(--ink);
   color: #fff;
+  padding: 12px 18px;
+  min-height: 46px;
 }
 .secondary-button { background: var(--soft); border-color: transparent; }
 .btn:disabled, .primary-button:disabled { opacity: .55; cursor: not-allowed; transform: none; }
@@ -273,7 +275,10 @@ button { -webkit-tap-highlight-color: transparent; }
 .metric > small { color: #9aa19c; font-weight: 800; }
 .metric b { font-size: 13px; }
 .metric p { margin: 5px 0 0; color: #89928d; font-size: 10px; line-height: 1.5; }
-.section { padding: clamp(76px, 10vw, 120px) 0; }
+.section { padding: clamp(96px, 10vw, 128px) 0; }
+.problem-section { min-height: 0; overflow: visible; }
+.problem-section h2 { max-width: 760px; }
+.problem-section .lead { max-width: 640px; }
 .two {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -296,8 +301,8 @@ button { -webkit-tap-highlight-color: transparent; }
 .list small { color: #9ca3a8; }
 .list b { font-size: 13px; }
 .list span { grid-column: 2; margin-top: 4px; color: #999fa4; font-size: 9px; }
-.dark, .verify { background: var(--ink); color: #fff; }
-.dark { padding: clamp(76px, 10vw, 115px) 0; }
+.dark-section, .verify { background: var(--ink); color: #fff; }
+.dark-section { padding: clamp(76px, 10vw, 115px) 0; }
 .light { color: #a9b2aa; }
 .head {
   display: flex;
@@ -497,6 +502,8 @@ footer { border-top: 1px solid var(--line); padding: 24px 0; }
 }
 
 @media (max-width: 720px) {
+  .section { padding-block: 72px; }
+  .dark-section { padding-block: 72px; }
   .container { width: calc(100% - 30px); }
   .nav { min-height: 68px; }
   .nav-links { display: none; }
