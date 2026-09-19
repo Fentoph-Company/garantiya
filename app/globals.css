@@ -565,3 +565,62 @@ footer { border-top: 1px solid var(--line); padding: 24px 0; }
   .auth-page { padding: 18px 12px; }
   .auth-card { padding: 22px 18px; }
 }
+
+.auth-shell {
+  width: min(500px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+.auth-brand {
+  align-self: flex-start;
+  margin-left: 4px;
+}
+.login-card { width: 100%; }
+.login-card .eyebrow { margin-bottom: 2px; }
+.login-card h1 { margin-bottom: 10px; }
+.login-fields {
+  display: grid;
+  gap: 16px;
+  margin-top: 26px;
+}
+.login-fields label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.login-fields label span { color: var(--ink); }
+.login-submit { width: 100%; margin-top: 20px; }
+.login-note {
+  margin-top: 18px;
+  padding: 15px 16px;
+  border: 1px solid #e4eadc;
+  border-radius: 14px;
+  background: #f6f9f1;
+}
+.login-note strong {
+  display: block;
+  color: #718d30;
+  font-size: 11px;
+  letter-spacing: .4px;
+}
+.login-note p {
+  margin: 5px 0 0;
+  color: #69736d;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.back-home {
+  align-self: center;
+  color: #7c857f;
+  font-size: 12px;
+  font-weight: 600;
+}
+.back-home:hover { color: var(--ink); }
+@media (max-width: 720px) {
+  .auth-shell { gap: 14px; }
+  .auth-brand { margin-left: 2px; }
+  .login-card { padding: 24px 20px; }
+}
