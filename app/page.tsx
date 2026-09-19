@@ -32,7 +32,7 @@ export default function Home() {
             <a href="#qanday" onClick={() => setMenu(false)}>Qanday ishlaydi</a>
             <a href="#tekshiruv" onClick={() => setMenu(false)}>Tekshirish</a>
           </div>
-          <a className="nav-cta" href="#boshlash">Boshlash →</a>
+          <a className="nav-cta" href="/login">Kirish →</a>
           <button className="menu-btn" type="button" aria-label="Menyuni ochish" onClick={() => setMenu(!menu)}>
             ☰
           </button>
@@ -49,7 +49,7 @@ export default function Home() {
             <p className="hero-text">Mahsulot kafolati, chek, servis murojaatlari va tekshiruvlarni bitta ishonchli platformada boshqaring.</p>
             <div className="actions">
               <a className="btn dark" href="#boshlash">Platformani ko‘rish →</a>
-              <a className="btn" href="#tekshiruv">⌗ Kafolatni tekshirish</a>
+              <a className="btn" href="/login">Shaxsiy kabinetga kirish →</a>
             </div>
             <div className="trust">✓ Bepul boshlash　 ✓ QR orqali tekshirish　 ✓ Servis kuzatuvi</div>
           </div>
