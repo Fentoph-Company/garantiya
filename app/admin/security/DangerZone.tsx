@@ -1,10 +1,10 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState, type FormEvent } from "react";
 
 type Action = "grant_admin" | "delete_warranties" | "delete_shops";
 
-export default function DangerZonePage() {
+export default function DangerZone() {
   const [password, setPassword] = useState("");
   const [targetEmail, setTargetEmail] = useState("");
   const [confirmation, setConfirmation] = useState("");
@@ -17,11 +17,14 @@ export default function DangerZonePage() {
     setError("");
     setMessage("");
 
-    if (action !== "grant_admin" && !window.confirm(
-      action === "delete_shops"
-        ? "Barcha do‘konlar, barcha do‘kon xodimlari va barcha garantiya talonlari ma’lumotlar bazasidan butunlay o‘chiriladi. Bu amalni ortga qaytarib bo‘lmaydi. Davom etasizmi?"
-        : "Barcha garantiya talonlari ma’lumotlar bazasidan butunlay o‘chiriladi. Bu amalni ortga qaytarib bo‘lmaydi. Davom etasizmi?"
-    )) return;
+    if (
+      action !== "grant_admin" &&
+      !window.confirm(
+        action === "delete_shops"
+          ? "Barcha do‘konlar, barcha do‘kon xodimlari va barcha garantiya talonlari ma’lumotlar bazasidan butunlay o‘chiriladi. Bu amalni ortga qaytarib bo‘lmaydi. Davom etasizmi?"
+          : "Barcha garantiya talonlari ma’lumotlar bazasidan butunlay o‘chiriladi. Bu amalni ortga qaytarib bo‘lmaydi. Davom etasizmi?",
+      )
+    ) return;
 
     setBusy(action);
     try {
@@ -47,6 +50,7 @@ export default function DangerZonePage() {
       }
 
       setConfirmation("");
+      setPassword("");
     } catch {
       setError("Server bilan aloqa amalga oshmadi.");
     } finally {
@@ -66,10 +70,7 @@ export default function DangerZonePage() {
 
       <div className="danger-warning">
         <strong>Diqqat: bu amallarni qaytarib bo‘lmaydi.</strong>
-        <p>
-          O‘chirish ishlari faqat serverda, administrator paroli va aniq tasdiqlash
-          matni bilan bajariladi. Faqat tugmani bosishning o‘zi yetarli emas.
-        </p>
+        <p>O‘chirish ishlari administrator paroli va aniq tasdiqlash matni bilan serverda bajariladi.</p>
       </div>
 
       {(error || message) && (
@@ -94,7 +95,7 @@ export default function DangerZonePage() {
               Joriy admin paroli
               <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required />
             </label>
-            <button className="primary-button" disabled={busy !== null}>
+            <button className="primary-button" type="submit" disabled={busy !== null}>
               {busy === "grant_admin" ? "Bajarilmoqda..." : "Admin huquqini berish"}
             </button>
           </form>
@@ -105,7 +106,7 @@ export default function DangerZonePage() {
             <span className="danger-icon">!</span>
             <div>
               <strong>Garantiya talonlarini barchasini tozalash</strong>
-              <small>Barcha Warranty yozuvlari bazadan fizik o‘chiriladi.</small>
+              <small>Barcha garantiya talonlari bazadan fizik o‘chiriladi.</small>
             </div>
           </div>
           <form className="panel-form" onSubmit={(e) => run("delete_warranties", e)}>
@@ -117,7 +118,7 @@ export default function DangerZonePage() {
               Joriy admin paroli
               <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required />
             </label>
-            <button className="danger-button" disabled={busy !== null}>
+            <button className="danger-button" type="submit" disabled={busy !== null}>
               {busy === "delete_warranties" ? "O‘chirilmoqda..." : "Barcha garantiya talonlarini o‘chirish"}
             </button>
           </form>
@@ -140,7 +141,7 @@ export default function DangerZonePage() {
               Joriy admin paroli
               <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required />
             </label>
-            <button className="danger-button" disabled={busy !== null}>
+            <button className="danger-button" type="submit" disabled={busy !== null}>
               {busy === "delete_shops" ? "O‘chirilmoqda..." : "Barcha do‘konlarni o‘chirish"}
             </button>
           </form>
