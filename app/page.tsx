@@ -186,7 +186,7 @@ export default function Home() {
 
       <footer>
         <div className="container foot">
-          <a className="brand" href="#"><b>G</b>garantiya</a>
+          <a className="brand" href="#"><img className="brand-mark" src="/icon.svg" alt="garantiya" />garantiya</a>
           <span>© 2026 Garantiya</span>
           <span>O‘zbekiston · Raqamli kafolat platformasi</span>
           <span><a href="/privacy">Maxfiylik siyosati</a> · <a href="/terms">Foydalanish shartlari</a> · <a href="/login">Kirish</a></span>
