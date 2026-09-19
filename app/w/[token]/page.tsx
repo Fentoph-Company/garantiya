@@ -38,7 +38,7 @@ export default async function Warranty({
       <div className="warranty-shell">
         <header className="warranty-topbar">
           <a className="brand" href="/">
-            <b>G</b>garantiya
+            <img className="brand-mark" src="/icon.svg" alt="garantiya" />garantiya
           </a>
           <span className="warranty-top-label">KAFOLATNI TEKSHIRISH</span>
         </header>
