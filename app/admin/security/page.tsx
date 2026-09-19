@@ -22,7 +22,7 @@ export default function SecurityPage(){
             <strong>Xavfli hudud</strong>
             <small>Admin huquqlari va ommaviy o‘chirish amallari.</small>
           </div>
-          <Link className="danger-outline-button" href="./security/danger">Xavfli hududni ochish</Link>
+          <Link className="danger-outline-button" href="./danger">Xavfli hududni ochish</Link>
         </div>
       </section>
     </section>
