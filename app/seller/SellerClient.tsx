@@ -13,7 +13,8 @@ export default function SellerPage() {
     try{
       const r=await fetch("/api/warranties",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(form)});
       const d=await r.json(); if(!r.ok) throw new Error(d.error||"Kafolat yaratilmadi.");
-      const link=d.link as string;
+      const relativeLink=d.link as string;
+      const link=new URL(relativeLink,window.location.origin).toString();
       const qr=await QRCode.toDataURL(link,{width:520,margin:2,errorCorrectionLevel:"H"});
       setResult({link,qr});
     }catch(e){setError(e instanceof Error?e.message:"Xatolik yuz berdi.");}
