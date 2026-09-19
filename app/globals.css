@@ -624,3 +624,18 @@ footer { border-top: 1px solid var(--line); padding: 24px 0; }
   .auth-brand { margin-left: 2px; }
   .login-card { padding: 24px 20px; }
 }
+
+.password-field { position: relative; display: flex; align-items: center; }
+.password-field input { padding-right: 92px; width: 100%; }
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  border: 0;
+  background: transparent;
+  color: #718d30;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 7px 6px;
+}
+.password-toggle:hover { color: var(--ink); }
