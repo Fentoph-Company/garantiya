@@ -134,6 +134,7 @@ export default function SellerPage() {
             <b>G</b>
             garantiya
           </a>
+          <SellerNav />
           <div className="seller-account">
             <span className="status-dot" />
             Do‘kon menejeri
